@@ -1,0 +1,83 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-09-17T00:38:52.385305+00:00",
+  "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJ1yJis5U-JmW",
+      "title": "Added WWW-Authenticate functionality from draft-parecki-oauth-authorization-server-discovery-00",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/1",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "as proposed by the working group during IETF 116",
+      "createdAt": "2023-07-07T23:21:10Z",
+      "updatedAt": "2023-07-07T23:33:20Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "f63db1b624d67363dcb348e900c6cce86b6911df",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-www-authenticate",
+      "headRefOid": "089508689e9701077cc8cae961e2bf5fede83219",
+      "closedAt": "2023-07-07T23:33:20Z",
+      "mergedAt": "2023-07-07T23:33:20Z",
+      "mergedBy": "aaronpk",
+      "mergeCommit": {
+        "oid": "4da5fe94d3c4a4a5e4b8523dd5391bb7be3bab27"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
