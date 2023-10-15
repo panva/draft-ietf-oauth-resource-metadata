@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-12T00:35:18.318142+00:00",
+  "timestamp": "2023-10-15T00:40:08.803197+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -49,7 +49,126 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOJ1yJis5zrQDR",
+      "title": "Security consideration: Scopes",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/2",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "aaronpk"
+      ],
+      "labels": [],
+      "body": "\"The `scopes_provided` parameter is not meant to indicate that a client should request all scopes in the list. The client should still follow best practices and request tokens with as limited scope as possible for the given operation.\"\r\n",
+      "createdAt": "2023-10-12T20:07:50Z",
+      "updatedAt": "2023-10-12T20:08:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOJ1yJis5zrQTX",
+      "title": "Rename `scopes_provided` to `scopes_supported`",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/3",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "aaronpk"
+      ],
+      "labels": [],
+      "body": "AS Metadata uses `scopes_supported`, this draft should match\r\n\r\nhttps://datatracker.ietf.org/doc/html/rfc8414#section-2",
+      "createdAt": "2023-10-12T20:08:16Z",
+      "updatedAt": "2023-10-12T20:08:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOJ1yJis5zrQeJ",
+      "title": "Update TLS Considerations language",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/4",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "selfissued"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-10-12T20:08:40Z",
+      "updatedAt": "2023-10-12T20:08:40Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOJ1yJis5zrR9J",
+      "title": "Security Consideration: Audience-restricted access tokens",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/5",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "The security concern is when there are two separate RSs with different sets of scopes, it shouldn't be possible for RS1 to tell the client to ask for scopes for RS2, and then have RS1 be able to use the access token at RS2. Audience-restricted access tokens and resource indicators are a solution.",
+      "createdAt": "2023-10-12T20:13:10Z",
+      "updatedAt": "2023-10-12T20:13:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOJ1yJis5zrTHM",
+      "title": "Revise abstract and introduction to include AS as audience of the RS Metadata",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/6",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "From BC's comments: https://mailarchive.ietf.org/arch/msg/oauth/LA6sqNOV98D7wP44p2Hl6dpSmtg/",
+      "createdAt": "2023-10-12T20:17:03Z",
+      "updatedAt": "2023-10-12T20:17:03Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOJ1yJis5zrVLB",
+      "title": "Use of RS signing keys",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/7",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "From BC's comments: https://mailarchive.ietf.org/arch/msg/oauth/LA6sqNOV98D7wP44p2Hl6dpSmtg/\r\n\r\n> What \"content\" is being signed or encrypted and by whom?\r\n\r\nFAPI Message Signing talks about the RS signing resource responses. This specification could be how the RS publishes the public key, as mentioned in 5.6.6.2\r\n\r\nhttps://openid.bitbucket.io/fapi/fapi-2_0-message-signing.html#section-5.6.2.2\r\n\r\n> This specification doesn't specify the exact means by which a Client can retrieve the key for the Resource Server. Together with the identity of the Resource Server and the keyid in the Signature-Input field, the Client can retrieve the key from a trusted third party or by some other means",
+      "createdAt": "2023-10-12T20:23:27Z",
+      "updatedAt": "2023-10-12T20:23:27Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOJ1yJis5zrYFP",
+      "title": "Question: What should the WWW-Authenticate header return",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/8",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Should the header return the full path to the Resource Metadata document, or return the resource identifier?\r\n\r\n* RS Metadata document: the client fetches the exact URL returned\r\n* Resource Identifier: the client builds the metadata URL by appending .well-known... and then fetches the URL\r\n\r\nWhat are the implications of this for resources that differ by path? (see mailing list thread about path-based resources that require different scopes)",
+      "createdAt": "2023-10-12T20:32:44Z",
+      "updatedAt": "2023-10-12T20:32:44Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
