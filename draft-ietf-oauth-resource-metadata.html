@@ -16,7 +16,7 @@
  an OAuth 2.0 protected resource.
        
     " name="description">
-<meta content="xml2rfc 3.18.0" name="generator">
+<meta content="xml2rfc 3.18.1" name="generator">
 <meta content="OAuth" name="keyword">
 <meta content="Discovery" name="keyword">
 <meta content="Metadata" name="keyword">
@@ -30,20 +30,20 @@
 <meta content="JWT" name="keyword">
 <meta content="draft-ietf-oauth-resource-metadata-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.0
+  xml2rfc 3.18.1
     Python 3.11.5
     ConfigArgParse 1.5.3
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.10.0
+    platformdirs 3.11.0
     pycountry 22.3.5
     PyYAML 6.0
     requests 2.31.0
     setuptools 67.7.2
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.8
 -->
 <link href="draft-ietf-oauth-resource-metadata.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -666,7 +666,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -759,7 +759,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -883,16 +883,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -905,6 +902,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -1006,28 +1006,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1064,11 +1042,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">OAuth 2.0 Protected Resource Metadata</td>
-<td class="right">September 2023</td>
+<td class="right">October 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Jones, et al.</td>
-<td class="center">Expires 9 March 2024</td>
+<td class="center">Expires 19 April 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1081,12 +1059,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-resource-metadata-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-09-06" class="published">6 September 2023</time>
+<time datetime="2023-10-17" class="published">17 October 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-03-09">9 March 2024</time></dd>
+<dd class="expires"><time datetime="2024-04-19">19 April 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1132,7 +1110,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1735,36 +1713,46 @@ svg :is([fill="white"], [fill^="#fff"]) {
  a similar sequence could also be implemented with any other OAuth flow.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5-3">
 <li id="section-5-3.1">
-     The client makes a request to a protected resource without presenting an access token.<a href="#section-5-3.1" class="pilcrow">¶</a>
+          <p id="section-5-3.1.1">
+     The client makes a request to a protected resource without presenting an access token.<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.2">
-     The resource server responds with a <code>WWW-Authenticate</code> header including the resource identifier of the protected resource.<a href="#section-5-3.2" class="pilcrow">¶</a>
+          <p id="section-5-3.2.1">
+     The resource server responds with a <code>WWW-Authenticate</code> header including the resource identifier of the protected resource.<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.3">
+          <p id="section-5-3.3.1">
      The client fetches resource metadata from the <code>.well-known/oauth-protected-resource</code> location
-     derived from the resource identifier according to <a href="#PRConfig" class="auto internal xref">Section 3</a>.<a href="#section-5-3.3" class="pilcrow">¶</a>
+     derived from the resource identifier according to <a href="#PRConfig" class="auto internal xref">Section 3</a>.<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.4">
-     The protected resource responds with the protected resource metadata according to <a href="#PRConfigurationResponse" class="auto internal xref">Section 3.2</a>.<a href="#section-5-3.4" class="pilcrow">¶</a>
+          <p id="section-5-3.4.1">
+     The protected resource responds with the protected resource metadata according to <a href="#PRConfigurationResponse" class="auto internal xref">Section 3.2</a>.<a href="#section-5-3.4.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.5">
+          <p id="section-5-3.5.1">
      The client builds the authorization server metadata URL from an issuer identifier in the resource metadata according to <span>[<a href="#RFC8414" class="cite xref">RFC8414</a>]</span>
-     and makes a request to fetch the authorization server metadata.<a href="#section-5-3.5" class="pilcrow">¶</a>
+     and makes a request to fetch the authorization server metadata.<a href="#section-5-3.5.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.6">
-     The authorization server responds with the authorization server metadata document according to <span>[<a href="#RFC8414" class="cite xref">RFC8414</a>]</span>.<a href="#section-5-3.6" class="pilcrow">¶</a>
+          <p id="section-5-3.6.1">
+     The authorization server responds with the authorization server metadata document according to <span>[<a href="#RFC8414" class="cite xref">RFC8414</a>]</span>.<a href="#section-5-3.6.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.7">
-     The client directs the user agent to the authorization server to begin the authorization flow.<a href="#section-5-3.7" class="pilcrow">¶</a>
+          <p id="section-5-3.7.1">
+     The client directs the user agent to the authorization server to begin the authorization flow.<a href="#section-5-3.7.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.8">
-     The authorization exchange is completed and the authorization server returns an access token to the client.<a href="#section-5-3.8" class="pilcrow">¶</a>
+          <p id="section-5-3.8.1">
+     The authorization exchange is completed and the authorization server returns an access token to the client.<a href="#section-5-3.8.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.9">
-     The client repeats the resource request from step 1, presenting the newly obtained access token.<a href="#section-5-3.9" class="pilcrow">¶</a>
+          <p id="section-5-3.9.1">
+     The client repeats the resource request from step 1, presenting the newly obtained access token.<a href="#section-5-3.9.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.10">
-     The resource server returns the requested protected resource.<a href="#section-5-3.10" class="pilcrow">¶</a>
+          <p id="section-5-3.10.1">
+     The resource server returns the requested protected resource.<a href="#section-5-3.10.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 <div id="WWW-Authenticate-Response">
@@ -1860,17 +1848,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
  strings MUST be performed as specified below:<a href="#section-6-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6-3">
 <li id="section-6-3.1">
+          <p id="section-6-3.1.1">
      Remove any JSON applied escaping to produce an array of
-     Unicode code points.<a href="#section-6-3.1" class="pilcrow">¶</a>
+     Unicode code points.<a href="#section-6-3.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-6-3.2">
+          <p id="section-6-3.2.1">
      Unicode Normalization <span>[<a href="#USA15" class="cite xref">USA15</a>]</span> MUST NOT
      be applied at any point to either the JSON string or to
-     the string it is to be compared against.<a href="#section-6-3.2" class="pilcrow">¶</a>
+     the string it is to be compared against.<a href="#section-6-3.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-6-3.3">
+          <p id="section-6-3.3.1">
      Comparisons between the two strings MUST be performed as a
-     Unicode code point to code point equality comparison.<a href="#section-6-3.3" class="pilcrow">¶</a>
+     Unicode code point to code point equality comparison.<a href="#section-6-3.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
@@ -1890,13 +1881,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
    Which version(s) ought to be implemented will vary over
    time, and depend on the widespread deployment and known
    security vulnerabilities at the time of implementation.
-   The protected resource MUST support
-   TLS version 1.2 <span>[<a href="#RFC5246" class="cite xref">RFC5246</a>]</span>
-   and MAY support additional transport-layer security mechanisms meeting its security requirements.
-   When using TLS, the client MUST perform a TLS/SSL server certificate check,
-   per <span>[<a href="#RFC6125" class="cite xref">RFC6125</a>]</span>.
-   Implementation security considerations can be found in
-   <span><a href="#BCP195" class="internal xref">Recommendations for Secure Use of TLS and DTLS</a> [<a href="#BCP195" class="cite xref">BCP195</a>]</span>.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+   Implementations SHOULD follow the guidance in
+   BCP 195 <span>[<a href="#RFC8996" class="cite xref">RFC8996</a>]</span> <span>[<a href="#RFC9325" class="cite xref">RFC9325</a>]</span>,
+   which provides recommendations and requirements
+   for improving the security of deployed services that use TLS.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <p id="section-7.1-2">
    To protect against information disclosure and tampering,
    confidentiality protection MUST be applied using TLS
@@ -2109,183 +2097,227 @@ svg :is([fill="white"], [fill^="#fff"]) {
           </h4>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-1.1">
-                Metadata Name: <code>resource</code><a href="#section-8.1.2-1.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-1.1.1">
+                Metadata Name: <code>resource</code><a href="#section-8.1.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-1.2">
+              <p id="section-8.1.2-1.2.1">
                 Metadata Description:
- Protected resource's resource identifier URL<a href="#section-8.1.2-1.2" class="pilcrow">¶</a>
+ Protected resource's resource identifier URL<a href="#section-8.1.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-1.3">
-                Change Controller: IETF<a href="#section-8.1.2-1.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-1.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-1.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-1.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-1.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-1.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-1.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-2.1">
-                Metadata Name: <code>authorization_servers</code><a href="#section-8.1.2-2.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-2.1.1">
+                Metadata Name: <code>authorization_servers</code><a href="#section-8.1.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-2.2">
+              <p id="section-8.1.2-2.2.1">
                 Metadata Description:
- JSON array containing a list of OAuth authorization server issuer identifiers<a href="#section-8.1.2-2.2" class="pilcrow">¶</a>
+ JSON array containing a list of OAuth authorization server issuer identifiers<a href="#section-8.1.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-2.3">
-                Change Controller: IETF<a href="#section-8.1.2-2.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-2.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-2.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-2.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-2.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-3.1">
-                Metadata Name: <code>jwks_uri</code><a href="#section-8.1.2-3.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-3.1.1">
+                Metadata Name: <code>jwks_uri</code><a href="#section-8.1.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-3.2">
+              <p id="section-8.1.2-3.2.1">
                 Metadata Description:
- URL of the protected resource's JWK Set document<a href="#section-8.1.2-3.2" class="pilcrow">¶</a>
+ URL of the protected resource's JWK Set document<a href="#section-8.1.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-3.3">
-                Change Controller: IETF<a href="#section-8.1.2-3.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-3.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-3.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-3.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-3.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-4.1">
-                Metadata Name: <code>scopes_provided</code><a href="#section-8.1.2-4.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-4.1.1">
+                Metadata Name: <code>scopes_provided</code><a href="#section-8.1.2-4.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-4.2">
+              <p id="section-8.1.2-4.2.1">
                 Metadata Description:
  JSON array containing a list of the OAuth 2.0
  <code>scope</code> values that
- are used in authorization requests to request access this protected resource<a href="#section-8.1.2-4.2" class="pilcrow">¶</a>
+ are used in authorization requests to request access this protected resource<a href="#section-8.1.2-4.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-4.3">
-                Change Controller: IETF<a href="#section-8.1.2-4.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-4.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-4.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-4.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-4.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-4.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-4.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-5.1">
-                Metadata Name: <code>bearer_methods_supported</code><a href="#section-8.1.2-5.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-5.1.1">
+                Metadata Name: <code>bearer_methods_supported</code><a href="#section-8.1.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-5.2">
+              <p id="section-8.1.2-5.2.1">
                 Metadata Description:
  JSON array containing a list of the OAuth 2.0 Bearer Token
- presentation methods that this protected resource supports<a href="#section-8.1.2-5.2" class="pilcrow">¶</a>
+ presentation methods that this protected resource supports<a href="#section-8.1.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-5.3">
-                Change Controller: IETF<a href="#section-8.1.2-5.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-5.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-5.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-5.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-5.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-5.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-6.1">
-                Metadata Name: <code>resource_signing_alg_values_supported</code><a href="#section-8.1.2-6.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-6.1.1">
+                Metadata Name: <code>resource_signing_alg_values_supported</code><a href="#section-8.1.2-6.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-6.2">
+              <p id="section-8.1.2-6.2.1">
                 Metadata Description:
  JSON array containing a list of the JWS signing algorithms
  (<code>alg</code> values)
  supported by the protected resource
- for signed content<a href="#section-8.1.2-6.2" class="pilcrow">¶</a>
+ for signed content<a href="#section-8.1.2-6.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-6.3">
-                Change Controller: IETF<a href="#section-8.1.2-6.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-6.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-6.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-6.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-6.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-6.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-6.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-7.1">
-                Metadata Name: <code>resource_encryption_alg_values_supported</code><a href="#section-8.1.2-7.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-7.1.1">
+                Metadata Name: <code>resource_encryption_alg_values_supported</code><a href="#section-8.1.2-7.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-7.2">
+              <p id="section-8.1.2-7.2.1">
                 Metadata Description:
  JSON array containing a list of the JWE encryption algorithms
  (<code>alg</code> values)
  supported by the protected resource
- for encrypted content<a href="#section-8.1.2-7.2" class="pilcrow">¶</a>
+ for encrypted content<a href="#section-8.1.2-7.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-7.3">
-                Change Controller: IETF<a href="#section-8.1.2-7.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-7.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-7.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-7.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-7.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-7.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-7.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-8.1">
-                Metadata Name: <code>resource_encryption_enc_values_supported</code><a href="#section-8.1.2-8.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-8.1.1">
+                Metadata Name: <code>resource_encryption_enc_values_supported</code><a href="#section-8.1.2-8.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-8.2">
+              <p id="section-8.1.2-8.2.1">
                 Metadata Description:
  JSON array containing a list of the JWE encryption algorithms
  (<code>enc</code> values)
  supported by the protected resource
- for encrypted content<a href="#section-8.1.2-8.2" class="pilcrow">¶</a>
+ for encrypted content<a href="#section-8.1.2-8.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-8.3">
-                Change Controller: IETF<a href="#section-8.1.2-8.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-8.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-8.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-8.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-8.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-8.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-8.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-9.1">
-                Metadata Name: <code>resource_documentation</code><a href="#section-8.1.2-9.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-9.1.1">
+                Metadata Name: <code>resource_documentation</code><a href="#section-8.1.2-9.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-9.2">
+              <p id="section-8.1.2-9.2.1">
                 Metadata Description:
  URL of a page containing human-readable information that
- developers might want or need to know when using the protected resource<a href="#section-8.1.2-9.2" class="pilcrow">¶</a>
+ developers might want or need to know when using the protected resource<a href="#section-8.1.2-9.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-9.3">
-                Change Controller: IETF<a href="#section-8.1.2-9.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-9.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-9.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-9.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-9.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-9.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-9.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-10.1">
-                Metadata Name: <code>resource_policy_uri</code><a href="#section-8.1.2-10.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-10.1.1">
+                Metadata Name: <code>resource_policy_uri</code><a href="#section-8.1.2-10.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-10.2">
+              <p id="section-8.1.2-10.2.1">
                 Metadata Description:
  URL that the protected resource provides
  to read about the protected resource's requirements on how
- the client can use the data provided by the protected resource<a href="#section-8.1.2-10.2" class="pilcrow">¶</a>
+ the client can use the data provided by the protected resource<a href="#section-8.1.2-10.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-10.3">
-                Change Controller: IETF<a href="#section-8.1.2-10.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-10.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-10.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-10.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-10.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-10.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-10.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <ul class="compact">
 <li class="compact" id="section-8.1.2-11.1">
-                Metadata Name: <code>resource_tos_uri</code><a href="#section-8.1.2-11.1" class="pilcrow">¶</a>
+              <p id="section-8.1.2-11.1.1">
+                Metadata Name: <code>resource_tos_uri</code><a href="#section-8.1.2-11.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-11.2">
+              <p id="section-8.1.2-11.2.1">
                 Metadata Description:
  URL that the protected resource provides
- to read about the protected resource's terms of service<a href="#section-8.1.2-11.2" class="pilcrow">¶</a>
+ to read about the protected resource's terms of service<a href="#section-8.1.2-11.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-11.3">
-                Change Controller: IETF<a href="#section-8.1.2-11.3" class="pilcrow">¶</a>
+              <p id="section-8.1.2-11.3.1">
+                Change Controller: IETF<a href="#section-8.1.2-11.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.1.2-11.4">
-                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-11.4" class="pilcrow">¶</a>
+              <p id="section-8.1.2-11.4.1">
+                Specification Document(s): <a href="#PRMetadata" class="auto internal xref">Section 2</a> of [[ this specification ]]<a href="#section-8.1.2-11.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2309,17 +2341,21 @@ svg :is([fill="white"], [fill^="#fff"]) {
           </h4>
 <ul class="compact">
 <li class="compact" id="section-8.2.1-1.1">
-                Metadata Name: <code>protected_resources</code><a href="#section-8.2.1-1.1" class="pilcrow">¶</a>
+              <p id="section-8.2.1-1.1.1">
+                Metadata Name: <code>protected_resources</code><a href="#section-8.2.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.2.1-1.2">
+              <p id="section-8.2.1-1.2.1">
                 Metadata Description:
- JSON array containing a list of resource identifiers for OAuth protected resources<a href="#section-8.2.1-1.2" class="pilcrow">¶</a>
+ JSON array containing a list of resource identifiers for OAuth protected resources<a href="#section-8.2.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.2.1-1.3">
-                Change Controller: IETF<a href="#section-8.2.1-1.3" class="pilcrow">¶</a>
+              <p id="section-8.2.1-1.3.1">
+                Change Controller: IETF<a href="#section-8.2.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.2.1-1.4">
-                Specification Document(s): <a href="#ASMetadata" class="auto internal xref">Section 4</a> of [[ this specification ]]<a href="#section-8.2.1-1.4" class="pilcrow">¶</a>
+              <p id="section-8.2.1-1.4.1">
+                Specification Document(s): <a href="#ASMetadata" class="auto internal xref">Section 4</a> of [[ this specification ]]<a href="#section-8.2.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2343,16 +2379,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
           </h4>
 <ul class="compact">
 <li class="compact" id="section-8.3.1-1.1">
- URI suffix: <code>oauth-protected-resource</code><a href="#section-8.3.1-1.1" class="pilcrow">¶</a>
+              <p id="section-8.3.1-1.1.1">
+ URI suffix: <code>oauth-protected-resource</code><a href="#section-8.3.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.3.1-1.2">
- Change controller: IETF<a href="#section-8.3.1-1.2" class="pilcrow">¶</a>
+              <p id="section-8.3.1-1.2.1">
+ Change controller: IETF<a href="#section-8.3.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.3.1-1.3">
- Specification document: <a href="#PRConfig" class="auto internal xref">Section 3</a> of [[ this specification ]]<a href="#section-8.3.1-1.3" class="pilcrow">¶</a>
+              <p id="section-8.3.1-1.3.1">
+ Specification document: <a href="#PRConfig" class="auto internal xref">Section 3</a> of [[ this specification ]]<a href="#section-8.3.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-8.3.1-1.4">
- Related information: (none)<a href="#section-8.3.1-1.4" class="pilcrow">¶</a>
+              <p id="section-8.3.1-1.4.1">
+ Related information: (none)<a href="#section-8.3.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2370,10 +2410,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="BCP195">[BCP195]</dt>
-        <dd>
-<span class="refAuthor">Sheffer, Y.</span>, <span class="refAuthor">Holz, R.</span>, and <span class="refAuthor">P. Saint-Andre</span>, <span class="refTitle">"Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="seriesInfo">BCP 195</span>, <span class="seriesInfo">RFC 7525</span>, <span class="seriesInfo">DOI 10.17487/RFC7525</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="http://www.rfc-editor.org/info/bcp195">http://www.rfc-editor.org/info/bcp195</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="JWA">[JWA]</dt>
         <dd>
 <span class="refAuthor">Jones, M.B.</span>, <span class="refTitle">"JSON Web Algorithms (JWA)"</span>, <span class="seriesInfo">RFC 7518</span>, <span class="seriesInfo">DOI 10.17487/RFC7518</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="http://tools.ietf.org/html/rfc7518">http://tools.ietf.org/html/rfc7518</a>&gt;</span>. </dd>
@@ -2406,17 +2442,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <dd>
 <span class="refAuthor">Narten, T.</span> and <span class="refAuthor">H. Alvestrand</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">RFC 5226</span>, <span class="seriesInfo">DOI 10.17487/RFC5226</span>, <time datetime="2008-05" class="refDate">May 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5226">https://www.rfc-editor.org/info/rfc5226</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC5246">[RFC5246]</dt>
-        <dd>
-<span class="refAuthor">Dierks, T.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.2"</span>, <span class="seriesInfo">RFC 5246</span>, <span class="seriesInfo">DOI 10.17487/RFC5246</span>, <time datetime="2008-08" class="refDate">August 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5246">https://www.rfc-editor.org/info/rfc5246</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC5785">[RFC5785]</dt>
         <dd>
 <span class="refAuthor">Nottingham, M.</span> and <span class="refAuthor">E. Hammer-Lahav</span>, <span class="refTitle">"Defining Well-Known Uniform Resource Identifiers (URIs)"</span>, <span class="seriesInfo">RFC 5785</span>, <span class="seriesInfo">DOI 10.17487/RFC5785</span>, <time datetime="2010-04" class="refDate">April 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5785">https://www.rfc-editor.org/info/rfc5785</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC6125">[RFC6125]</dt>
-        <dd>
-<span class="refAuthor">Saint-Andre, P.</span> and <span class="refAuthor">J. Hodges</span>, <span class="refTitle">"Representation and Verification of Domain-Based Application Service Identity within Internet Public Key Infrastructure Using X.509 (PKIX) Certificates in the Context of Transport Layer Security (TLS)"</span>, <span class="seriesInfo">RFC 6125</span>, <span class="seriesInfo">DOI 10.17487/RFC6125</span>, <time datetime="2011-03" class="refDate">March 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6125">https://www.rfc-editor.org/info/rfc6125</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6749">[RFC6749]</dt>
         <dd>
@@ -2441,6 +2469,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8996">[RFC8996]</dt>
+        <dd>
+<span class="refAuthor">Moriarty, K.</span> and <span class="refAuthor">S. Farrell</span>, <span class="refTitle">"Deprecating TLS 1.0 and TLS 1.1"</span>, <span class="seriesInfo">BCP 195</span>, <span class="seriesInfo">RFC 8996</span>, <span class="seriesInfo">DOI 10.17487/RFC8996</span>, <time datetime="2021-03" class="refDate">March 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8996">https://www.rfc-editor.org/info/rfc8996</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9325">[RFC9325]</dt>
+        <dd>
+<span class="refAuthor">Sheffer, Y.</span>, <span class="refAuthor">Saint-Andre, P.</span>, and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="seriesInfo">BCP 195</span>, <span class="seriesInfo">RFC 9325</span>, <span class="seriesInfo">DOI 10.17487/RFC9325</span>, <time datetime="2022-11" class="refDate">November 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9325">https://www.rfc-editor.org/info/rfc9325</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="UNICODE">[UNICODE]</dt>
         <dd>
@@ -2502,10 +2538,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="appendix-B-1">[[ to be removed by the RFC Editor before publication as an RFC ]]<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 <p id="appendix-B-2">
- -00<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+ -01<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-3.1">
-     Initial working group version based on draft-jones-oauth-resource-metadata-04.<a href="#appendix-B-3.1" class="pilcrow">¶</a>
+          <p id="appendix-B-3.1.1">
+     Use BCP 195 for TLS recommendations.<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-4">
+ -00<a href="#appendix-B-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-5.1">
+          <p id="appendix-B-5.1.1">
+     Initial working group version based on draft-jones-oauth-resource-metadata-04.<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
