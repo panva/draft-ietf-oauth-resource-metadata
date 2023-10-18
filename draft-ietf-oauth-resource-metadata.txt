@@ -71,11 +71,12 @@ Table of Contents
    6.  String Operations
    7.  Security Considerations
      7.1.  TLS Requirements
-     7.2.  Impersonation Attacks
-     7.3.  Publishing Metadata in a Standard Format
-     7.4.  Authorization Servers
-     7.5.  Server-Side Request Forgery (SSRF)
-     7.6.  Phishing
+     7.2.  Scopes
+     7.3.  Impersonation Attacks
+     7.4.  Publishing Metadata in a Standard Format
+     7.5.  Authorization Servers
+     7.6.  Server-Side Request Forgery (SSRF)
+     7.7.  Phishing
    8.  IANA Considerations
      8.1.  OAuth Protected Resource Metadata Registry
        8.1.1.  Registration Template
@@ -120,7 +121,7 @@ Table of Contents
    multiple protected resources.  This prevents attackers from
    publishing metadata supposedly describing the protected resource, but
    that is not actually authoritative for the protected resource, as
-   described in Section 7.2.
+   described in Section 7.3.
 
    The means by which the client obtains the location of the protected
    resource metadata document is out of scope.  In some cases, the
@@ -525,7 +526,17 @@ Table of Contents
    confidentiality protection MUST be applied using TLS with a
    ciphersuite that provides confidentiality and integrity protection.
 
-7.2.  Impersonation Attacks
+7.2.  Scopes
+
+   The scopes_supported parameter is the list of scopes the resource
+   server is willing to disclose that it supports.  It is not meant to
+   indicate that an OAuth client should request all scopes in the list.
+   The client SHOULD still follow OAuth best practices and request
+   tokens with as limited scope as possible for the given operation, as
+   described in Section 2.3 of OAuth 2.0 Security Best Current Practice
+   [draft-ietf-oauth-security-topics].
+
+7.3.  Impersonation Attacks
 
    TLS certificate checking MUST be performed by the client, as
    described in Section 7.1, when making a protected resource metadata
@@ -548,7 +559,7 @@ Table of Contents
    value in the protected resource metadata document received by the
    client.
 
-7.3.  Publishing Metadata in a Standard Format
+7.4.  Publishing Metadata in a Standard Format
 
    Publishing information about the protected resource in a standard
    format makes it easier for both legitimate clients and attackers to
@@ -557,7 +568,7 @@ Table of Contents
    this specification, the same defenses against attacks that might be
    mounted that use this information should be applied.
 
-7.4.  Authorization Servers
+7.5.  Authorization Servers
 
    Secure determination of appropriate authorization servers to use with
    a protected resource for all use cases is out of scope of this
@@ -592,7 +603,7 @@ Table of Contents
    another for consistency when these lists are used by the application
    profile.
 
-7.5.  Server-Side Request Forgery (SSRF)
+7.6.  Server-Side Request Forgery (SSRF)
 
    The OAuth client is expected to fetch the authorization server
    metadata based on the value of the issuer in the resource server
@@ -604,7 +615,7 @@ Table of Contents
    recommendations can be found in the OWASP SSRF Prevention Cheat Sheet
    [OWASP.SSRF].
 
-7.6.  Phishing
+7.7.  Phishing
 
    This specification may be deployed in a scenario where the desired
    HTTP resource is identified by a user-selected URL.  If this resource
@@ -793,6 +804,12 @@ Table of Contents
 9.  References
 
 9.1.  Normative References
+
+   [draft-ietf-oauth-security-topics]
+              Lodderstedt, T., Bradley, J., Labunets, A., and D. Fett,
+              "OAuth 2.0 Security Best Current Practice",
+              <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-
+              security-topics>.
 
    [JWA]      Jones, M.B., "JSON Web Algorithms (JWA)", RFC 7518,
               DOI 10.17487/RFC7518, May 2015,
