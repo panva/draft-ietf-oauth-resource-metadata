@@ -193,11 +193,11 @@ Table of Contents
       use) parameter value is REQUIRED for all keys in the referenced
       JWK Set to indicate each key's intended usage.
 
-   scopes_provided
+   scopes_supported
       RECOMMENDED.  JSON array containing a list of the OAuth 2.0
       [RFC6749] scope values that are used in authorization requests to
       request access to this protected resource.  Protected resources
-      MAY choose not to advertise some scope values provided even when
+      MAY choose not to advertise some scope values supported even when
       this parameter is used.
 
    bearer_methods_supported
@@ -707,7 +707,7 @@ Table of Contents
    *  Change Controller: IETF
    *  Specification Document(s): Section 2 of [[ this specification ]]
 
-   *  Metadata Name: scopes_provided
+   *  Metadata Name: scopes_supported
    *  Metadata Description: JSON array containing a list of the OAuth
       2.0 scope values that are used in authorization requests to
       request access this protected resource
