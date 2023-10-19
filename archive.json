@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-15T00:40:08.803197+00:00",
+  "timestamp": "2023-10-19T00:37:14.861475+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -55,7 +55,7 @@
       "id": "I_kwDOJ1yJis5zrQDR",
       "title": "Security consideration: Scopes",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -64,8 +64,8 @@
       "labels": [],
       "body": "\"The `scopes_provided` parameter is not meant to indicate that a client should request all scopes in the list. The client should still follow best practices and request tokens with as limited scope as possible for the given operation.\"\r\n",
       "createdAt": "2023-10-12T20:07:50Z",
-      "updatedAt": "2023-10-12T20:08:51Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-18T12:20:08Z",
+      "closedAt": "2023-10-18T12:20:08Z",
       "comments": []
     },
     {
@@ -73,7 +73,7 @@
       "id": "I_kwDOJ1yJis5zrQTX",
       "title": "Rename `scopes_provided` to `scopes_supported`",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -82,8 +82,8 @@
       "labels": [],
       "body": "AS Metadata uses `scopes_supported`, this draft should match\r\n\r\nhttps://datatracker.ietf.org/doc/html/rfc8414#section-2",
       "createdAt": "2023-10-12T20:08:16Z",
-      "updatedAt": "2023-10-12T20:08:46Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-18T02:03:36Z",
+      "closedAt": "2023-10-18T02:03:36Z",
       "comments": []
     },
     {
@@ -91,7 +91,7 @@
       "id": "I_kwDOJ1yJis5zrQeJ",
       "title": "Update TLS Considerations language",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -100,8 +100,8 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-10-12T20:08:40Z",
-      "updatedAt": "2023-10-12T20:08:40Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-17T17:56:14Z",
+      "closedAt": "2023-10-17T17:56:14Z",
       "comments": []
     },
     {
@@ -197,6 +197,118 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOJ1yJis5dChqF",
+      "title": "Update TLS recommendations",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/9",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #4 ",
+      "createdAt": "2023-10-17T16:41:11Z",
+      "updatedAt": "2023-10-17T17:56:13Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "cd7b46b06f0ab93554652153ba2c4615eac585b2",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-tls",
+      "headRefOid": "4f2dee26305f021f994d5cb6235596c57302338c",
+      "closedAt": "2023-10-17T17:56:13Z",
+      "mergedAt": "2023-10-17T17:56:13Z",
+      "mergedBy": "aaronpk",
+      "mergeCommit": {
+        "oid": "a98963d9ed767bec5f040cb032798579ef1938cb"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOJ1yJis5dC8zs",
+      "title": "Rename `scopes_provided` to `scopes_supported`",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/10",
+      "state": "MERGED",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "closes #3",
+      "createdAt": "2023-10-17T17:59:49Z",
+      "updatedAt": "2023-10-18T02:03:35Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "a98963d9ed767bec5f040cb032798579ef1938cb",
+      "headRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "headRefName": "apk-scopes-supported",
+      "headRefOid": "63bb78a7061b5a298d49725c9f82a4c4e1f7d19e",
+      "closedAt": "2023-10-18T02:03:35Z",
+      "mergedAt": "2023-10-18T02:03:35Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "bf2f69731034ddd645fa849ba83bf82ba275219c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5kXE18",
+          "commit": {
+            "abbreviatedOid": "63bb78a"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-18T02:03:06Z",
+          "updatedAt": "2023-10-18T02:03:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOJ1yJis5dDH2A",
+      "title": "add security consideration for scopes_supported",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/11",
+      "state": "MERGED",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "closes #2",
+      "createdAt": "2023-10-17T18:28:12Z",
+      "updatedAt": "2023-10-18T12:20:07Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "a98963d9ed767bec5f040cb032798579ef1938cb",
+      "headRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "headRefName": "apk-scopes-security-consideration",
+      "headRefOid": "3e1a1284b96232d10109861497fc881a4eaf0916",
+      "closedAt": "2023-10-18T12:20:07Z",
+      "mergedAt": "2023-10-18T12:20:07Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "6b9ad04879cef11fa0f3170b9f6f34d6612c2700"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5kbb66",
+          "commit": {
+            "abbreviatedOid": "3e1a128"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-18T12:19:53Z",
+          "updatedAt": "2023-10-18T12:19:53Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
