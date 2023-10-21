@@ -5,10 +5,10 @@
 OAuth Working Group                                           M.B. Jones
 Internet-Draft                                    Self-Issued Consulting
 Intended status: Standards Track                                 P. Hunt
-Expires: 19 April 2024                        Independent Identity, Inc.
+Expires: 22 April 2024                        Independent Identity, Inc.
                                                               A. Parecki
                                                                     Okta
-                                                         17 October 2023
+                                                         20 October 2023
 
 
                  OAuth 2.0 Protected Resource Metadata
@@ -17,8 +17,8 @@ Expires: 19 April 2024                        Independent Identity, Inc.
 Abstract
 
    This specification defines a metadata format that an OAuth 2.0 client
-   can use to obtain the information needed to interact with an OAuth
-   2.0 protected resource.
+   or authorization server can use to obtain the information needed to
+   interact with an OAuth 2.0 protected resource.
 
 Status of This Memo
 
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 April 2024.
+   This Internet-Draft will expire on 22 April 2024.
 
 Copyright Notice
 
@@ -95,13 +95,13 @@ Table of Contents
 1.  Introduction
 
    This specification defines a metadata format enabling OAuth 2.0
-   clients to obtain information needed to interact with an OAuth 2.0
-   protected resource.  This specification is intentionally as parallel
-   as possible to "OAuth 2.0 Dynamic Client Registration Protocol"
-   [RFC7591], which enables a client to provide metadata about itself to
-   an OAuth 2.0 authorization server and to OAuth 2.0 Authorization
-   Server Metadata [OAuth.AuthorizationMetadata], which enables a client
-   to obtain metadata about an OAuth 2.0 authorization server.
+   clients and authorization servers to obtain information needed to
+   interact with an OAuth 2.0 protected resource.  This specification is
+   intentionally as parallel as possible to "OAuth 2.0 Dynamic Client
+   Registration Protocol" [RFC7591], which enables a client to provide
+   metadata about itself to an OAuth 2.0 authorization server and to
+   OAuth 2.0 Authorization Server Metadata [RFC8414], which enables a
+   client to obtain metadata about an OAuth 2.0 authorization server.
 
    The metadata for a protected resource is retrieved from a well-known
    location as a JSON [RFC7159] document, which declares information
@@ -177,13 +177,13 @@ Table of Contents
 
    authorization_servers
       OPTIONAL.  JSON array containing a list of OAuth authorization
-      server issuer identifiers, as defined in
-      [OAuth.AuthorizationMetadata], for authorization servers that can
-      be used with this protected resource.  Protected resources MAY
-      choose not to advertise some supported authorization servers even
-      when this parameter is used.  In some use cases, the set of
-      authorization servers will not be enumerable, in which case this
-      metadata parameter would not be used.
+      server issuer identifiers, as defined in [RFC8414], for
+      authorization servers that can be used with this protected
+      resource.  Protected resources MAY choose not to advertise some
+      supported authorization servers even when this parameter is used.
+      In some use cases, the set of authorization servers will not be
+      enumerable, in which case this metadata parameter would not be
+      used.
 
    jwks_uri
       OPTIONAL.  URL of the protected resource's JWK Set [JWK] document.
@@ -374,7 +374,7 @@ Table of Contents
    The following authorization server metadata value is defined by this
    specification and is registered in the IANA "OAuth Authorization
    Server Metadata" registry established in OAuth 2.0 Authorization
-   Server Metadata [OAuth.AuthorizationMetadata].
+   Server Metadata [RFC8414].
 
    protected_resources
       OPTIONAL.  JSON array containing a list of resource identifiers
@@ -451,8 +451,7 @@ Table of Contents
    [RFC6750].
 
    The issuer parameter MAY be combined with other parameters defined in
-   other extensions, such as the max_age parameter defined by
-   [I-D.ietf-oauth-step-up-authn-challenge].
+   other extensions, such as the max_age parameter defined by [RFC9470].
 
 5.2.  Changes to Resource Metadata
 
@@ -534,7 +533,7 @@ Table of Contents
    The client SHOULD still follow OAuth best practices and request
    tokens with as limited scope as possible for the given operation, as
    described in Section 2.3 of OAuth 2.0 Security Best Current Practice
-   [draft-ietf-oauth-security-topics].
+   [I-D.ietf-oauth-security-topics].
 
 7.3.  Impersonation Attacks
 
@@ -777,8 +776,7 @@ Table of Contents
 
    The following authorization server metadata value is registered in
    the IANA "OAuth Authorization Server Metadata" registry established
-   in OAuth 2.0 Authorization Server Metadata
-   [OAuth.AuthorizationMetadata].
+   in OAuth 2.0 Authorization Server Metadata [RFC8414].
 
 8.2.1.  Registry Contents
 
@@ -805,12 +803,6 @@ Table of Contents
 
 9.1.  Normative References
 
-   [draft-ietf-oauth-security-topics]
-              Lodderstedt, T., Bradley, J., Labunets, A., and D. Fett,
-              "OAuth 2.0 Security Best Current Practice",
-              <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-
-              security-topics>.
-
    [JWA]      Jones, M.B., "JSON Web Algorithms (JWA)", RFC 7518,
               DOI 10.17487/RFC7518, May 2015,
               <http://tools.ietf.org/html/rfc7518>.
@@ -830,13 +822,6 @@ Table of Contents
    [JWT]      Jones, M.B., Bradley, J., and N. Sakimura, "JSON Web Token
               (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
               <http://tools.ietf.org/html/rfc7519>.
-
-   [OAuth.AuthorizationMetadata]
-              Jones, M.B., Sakimura, N., and J. Bradley, "OAuth 2.0
-              Authorization Server Metadata", Work in Progress,
-              Internet-Draft, draft-ietf-oauth-discovery-05, 19 January
-              2017, <http://tools.ietf.org/html/draft-ietf-oauth-
-              discovery-05>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -879,6 +864,11 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+   [RFC8414]  Jones, M., Sakimura, N., and J. Bradley, "OAuth 2.0
+              Authorization Server Metadata", RFC 8414,
+              DOI 10.17487/RFC8414, June 2018,
+              <https://www.rfc-editor.org/info/rfc8414>.
+
    [RFC8996]  Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
               1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
               <https://www.rfc-editor.org/info/rfc8996>.
@@ -898,12 +888,13 @@ Table of Contents
 
 9.2.  Informative References
 
-   [I-D.ietf-oauth-step-up-authn-challenge]
-              Bertocci, V. and B. Campbell, "OAuth 2.0 Step-up
-              Authentication Challenge Protocol", Work in Progress,
-              Internet-Draft, draft-ietf-oauth-step-up-authn-challenge-
-              17, 26 June 2023, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-oauth-step-up-authn-challenge-17>.
+   [I-D.ietf-oauth-security-topics]
+              Lodderstedt, T., Bradley, J., Labunets, A., and D. Fett,
+              "OAuth 2.0 Security Best Current Practice", Work in
+              Progress, Internet-Draft, draft-ietf-oauth-security-
+              topics-23, 5 June 2023,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-
+              security-topics-23>.
 
    [IANA.well-known]
               IANA, "Well-Known URIs",
@@ -920,10 +911,10 @@ Table of Contents
               <https://cheatsheetseries.owasp.org/cheatsheets/
               Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html>.
 
-   [RFC8414]  Jones, M., Sakimura, N., and J. Bradley, "OAuth 2.0
-              Authorization Server Metadata", RFC 8414,
-              DOI 10.17487/RFC8414, June 2018,
-              <https://www.rfc-editor.org/info/rfc8414>.
+   [RFC9470]  Bertocci, V. and B. Campbell, "OAuth 2.0 Step Up
+              Authentication Challenge Protocol", RFC 9470,
+              DOI 10.17487/RFC9470, September 2023,
+              <https://www.rfc-editor.org/info/rfc9470>.
 
 Appendix A.  Acknowledgements
 
@@ -940,6 +931,11 @@ Appendix B.  Document History
    -01
 
    *  Use BCP 195 for TLS recommendations.
+
+   *  Clarified that resource metadata can be used by clients and
+      authorization servers.
+
+   *  Updated references.
 
    -00
 
