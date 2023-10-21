@@ -970,6 +970,10 @@ Appendix B.  Document History
 
    -01
 
+   *  Renamed scopes_provided to scopes_supported.
+
+   *  Added security consideration for scopes_supported.
+
    *  Use BCP 195 for TLS recommendations.
 
    *  Clarified that resource metadata can be used by clients and
