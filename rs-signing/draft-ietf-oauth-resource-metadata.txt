@@ -924,7 +924,8 @@ Table of Contents
 9.2.  Informative References
 
    [FAPI.MessageSigning]
-              Tonge, D. and D. Fett, "FAPI 2.0 Message Signing",
+              Tonge, D. and D. Fett, "FAPI 2.0 Message Signing", 24
+              March 2023,
               <https://openid.net/specs/fapi-2_0-message-signing.html>.
 
    [I-D.ietf-oauth-security-topics]
