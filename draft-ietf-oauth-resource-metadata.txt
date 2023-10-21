@@ -623,8 +623,9 @@ Table of Contents
    controlled capabilities.  This risk is reduced, but not eliminated,
    by following best practices for OAuth user interfaces, such as
    providing clear notice to the user, displaying the authorization
-   server's domain name, supporting the use of password managers, and
-   applying heuristic checks such as domain reputation.
+   server's domain name, supporting origin-bound phishing-resistant
+   authenticators, supporting the use of password managers, and applying
+   heuristic checks such as domain reputation.
 
 8.  IANA Considerations
 
