@@ -73,10 +73,11 @@ Table of Contents
      7.1.  TLS Requirements
      7.2.  Scopes
      7.3.  Impersonation Attacks
-     7.4.  Publishing Metadata in a Standard Format
-     7.5.  Authorization Servers
-     7.6.  Server-Side Request Forgery (SSRF)
-     7.7.  Phishing
+     7.4.  Audience-Restricted Access Tokens
+     7.5.  Publishing Metadata in a Standard Format
+     7.6.  Authorization Servers
+     7.7.  Server-Side Request Forgery (SSRF)
+     7.8.  Phishing
    8.  IANA Considerations
      8.1.  OAuth Protected Resource Metadata Registry
        8.1.1.  Registration Template
@@ -568,7 +569,27 @@ Table of Contents
    value in the protected resource metadata document received by the
    client.
 
-7.4.  Publishing Metadata in a Standard Format
+7.4.  Audience-Restricted Access Tokens
+
+   If a client expects to interact with multiple resource servers, the
+   client SHOULD request audience-restricted access tokens using
+   [RFC8707], and the authorization server SHOULD support audience-
+   restricted access tokens.
+
+   Without audience-restricted access tokens, a malicious resource
+   server (RS1) may be able to use the WWW-Authenticate header to get a
+   client to request an access token with a scope used by a legitimate
+   resource server (RS2), and after the client sends a request to RS1,
+   then RS1 could re-use the access token at RS2.
+
+   While this attack is not explicitly enabled by this specification,
+   and is possible in a plain OAuth 2.0 deployment, it is made somewhat
+   more likely by the use of dynamically-configured clients.  As such,
+   the use of audience-restricted access tokens and Resource Indicators
+   [RFC8707] is RECOMMENDED when using the features in this
+   specification.
+
+7.5.  Publishing Metadata in a Standard Format
 
    Publishing information about the protected resource in a standard
    format makes it easier for both legitimate clients and attackers to
@@ -577,7 +598,7 @@ Table of Contents
    this specification, the same defenses against attacks that might be
    mounted that use this information should be applied.
 
-7.5.  Authorization Servers
+7.6.  Authorization Servers
 
    Secure determination of appropriate authorization servers to use with
    a protected resource for all use cases is out of scope of this
@@ -612,7 +633,7 @@ Table of Contents
    another for consistency when these lists are used by the application
    profile.
 
-7.6.  Server-Side Request Forgery (SSRF)
+7.7.  Server-Side Request Forgery (SSRF)
 
    The OAuth client is expected to fetch the authorization server
    metadata based on the value of the issuer in the resource server
@@ -624,7 +645,7 @@ Table of Contents
    recommendations can be found in the OWASP SSRF Prevention Cheat Sheet
    [OWASP.SSRF].
 
-7.7.  Phishing
+7.8.  Phishing
 
    This specification may be deployed in a scenario where the desired
    HTTP resource is identified by a user-selected URL.  If this resource
@@ -880,6 +901,10 @@ Table of Contents
               DOI 10.17487/RFC8414, June 2018,
               <https://www.rfc-editor.org/info/rfc8414>.
 
+   [RFC8707]  Campbell, B., Bradley, J., and H. Tschofenig, "Resource
+              Indicators for OAuth 2.0", RFC 8707, DOI 10.17487/RFC8707,
+              February 2020, <https://www.rfc-editor.org/info/rfc8707>.
+
    [RFC8996]  Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
               1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
               <https://www.rfc-editor.org/info/rfc8996>.
@@ -951,6 +976,12 @@ Appendix B.  Document History
       authorization servers.
 
    *  Updated references.
+
+   *  Added security consideration recommending audience-restricted
+      access tokens.
+
+   *  Mention FAPI Message Signing as a use case for publishing signing
+      keys.
 
    -00
 
