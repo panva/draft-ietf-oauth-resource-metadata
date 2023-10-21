@@ -1326,6 +1326,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
  through the use of <span><a href="#RFC7033" class="internal xref">WebFinger</a> [<a href="#RFC7033" class="cite xref">RFC7033</a>]</span>,
  in a manner related to the description in Section 2 of
  <span><a href="#OpenID.Discovery" class="internal xref">"OpenID Connect Discovery 1.0"</a> [<a href="#OpenID.Discovery" class="cite xref">OpenID.Discovery</a>]</span>.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">
+      <a href="#PRMetadata" class="auto internal xref">Section 2</a> defines metadata values that a protected
+       resource can publish, which includes things like which scopes are
+       supported, how a client can present an access token, and more.
+       These values may be used by other specifications, such as the <code>jwks_uri</code>
+       used to publish public keys the resource server uses to sign
+       resource responses, as described in Section 5.6.2 of <span>[<a href="#FAPI.MessageSigning" class="cite xref">FAPI.MessageSigning</a>]</span>.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <div id="rnc">
 <section id="section-1.1">
         <h3 id="name-requirements-notation-and-c">
@@ -1413,9 +1420,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <dd style="margin-left: 1.5em" id="section-2-2.6">
      OPTIONAL.
      URL of the protected resource's JWK Set <span>[<a href="#JWK" class="cite xref">JWK</a>]</span> document.
-     This contains keys belonging to the protected resource.
+     This contains public keys belonging to the protected resource.
      For instance, this JWK Set MAY contain encryption key(s)
      that are used to encrypt access tokens to the protected resource.
+     The JWK Set MAY also contain signing key(s) that the resource
+     server uses to sign responses.
      When both signing and encryption keys are made available,
      a <code>use</code> (public key use) parameter
      value is REQUIRED for all keys in the referenced JWK Set
@@ -2534,6 +2543,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="FAPI.MessageSigning">[FAPI.MessageSigning]</dt>
+        <dd>
+<span class="refAuthor">Tonge, D.</span> and <span class="refAuthor">D. Fett</span>, <span class="refTitle">"FAPI 2.0 Message Signing"</span>, <time datetime="2023-03-24" class="refDate">24 March 2023</time>, <span>&lt;<a href="https://openid.net/specs/fapi-2_0-message-signing.html">https://openid.net/specs/fapi-2_0-message-signing.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.ietf-oauth-security-topics">[I-D.ietf-oauth-security-topics]</dt>
         <dd>
 <span class="refAuthor">Lodderstedt, T.</span>, <span class="refAuthor">Bradley, J.</span>, <span class="refAuthor">Labunets, A.</span>, and <span class="refAuthor">D. Fett</span>, <span class="refTitle">"OAuth 2.0 Security Best Current Practice"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-oauth-security-topics-23</span>, <time datetime="2023-06-05" class="refDate">5 June 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-23">https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-23</a>&gt;</span>. </dd>
@@ -2596,6 +2609,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <li class="normal" id="appendix-B-3.4">
           <p id="appendix-B-3.4.1">
     Added security consideration recommending audience-restricted access tokens.<a href="#appendix-B-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.5">
+          <p id="appendix-B-3.5.1">
+    Mention FAPI Message Signing as a use case for publishing signing keys.<a href="#appendix-B-3.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-B-4">

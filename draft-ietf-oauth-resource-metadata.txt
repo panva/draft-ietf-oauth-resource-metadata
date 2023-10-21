@@ -131,6 +131,13 @@ Table of Contents
    WebFinger [RFC7033], in a manner related to the description in
    Section 2 of "OpenID Connect Discovery 1.0" [OpenID.Discovery].
 
+   Section 2 defines metadata values that a protected resource can
+   publish, which includes things like which scopes are supported, how a
+   client can present an access token, and more.  These values may be
+   used by other specifications, such as the jwks_uri used to publish
+   public keys the resource server uses to sign resource responses, as
+   described in Section 5.6.2 of [FAPI.MessageSigning].
+
 1.1.  Requirements Notation and Conventions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -188,12 +195,14 @@ Table of Contents
 
    jwks_uri
       OPTIONAL.  URL of the protected resource's JWK Set [JWK] document.
-      This contains keys belonging to the protected resource.  For
-      instance, this JWK Set MAY contain encryption key(s) that are used
-      to encrypt access tokens to the protected resource.  When both
-      signing and encryption keys are made available, a use (public key
-      use) parameter value is REQUIRED for all keys in the referenced
-      JWK Set to indicate each key's intended usage.
+      This contains public keys belonging to the protected resource.
+      For instance, this JWK Set MAY contain encryption key(s) that are
+      used to encrypt access tokens to the protected resource.  The JWK
+      Set MAY also contain signing key(s) that the resource server uses
+      to sign responses.  When both signing and encryption keys are made
+      available, a use (public key use) parameter value is REQUIRED for
+      all keys in the referenced JWK Set to indicate each key's intended
+      usage.
 
    scopes_supported
       RECOMMENDED.  JSON array containing a list of the OAuth 2.0
@@ -914,6 +923,11 @@ Table of Contents
 
 9.2.  Informative References
 
+   [FAPI.MessageSigning]
+              Tonge, D. and D. Fett, "FAPI 2.0 Message Signing", 24
+              March 2023,
+              <https://openid.net/specs/fapi-2_0-message-signing.html>.
+
    [I-D.ietf-oauth-security-topics]
               Lodderstedt, T., Bradley, J., Labunets, A., and D. Fett,
               "OAuth 2.0 Security Best Current Practice", Work in
@@ -965,6 +979,9 @@ Appendix B.  Document History
 
    *  Added security consideration recommending audience-restricted
       access tokens.
+
+   *  Mention FAPI Message Signing as a use case for publishing signing
+      keys.
 
    -00
 
