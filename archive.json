@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-19T00:37:14.861475+00:00",
+  "timestamp": "2023-10-22T00:39:59.010458+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -109,15 +109,15 @@
       "id": "I_kwDOJ1yJis5zrR9J",
       "title": "Security Consideration: Audience-restricted access tokens",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "The security concern is when there are two separate RSs with different sets of scopes, it shouldn't be possible for RS1 to tell the client to ask for scopes for RS2, and then have RS1 be able to use the access token at RS2. Audience-restricted access tokens and resource indicators are a solution.",
       "createdAt": "2023-10-12T20:13:10Z",
-      "updatedAt": "2023-10-12T20:13:10Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-21T01:48:48Z",
+      "closedAt": "2023-10-21T01:48:48Z",
       "comments": []
     },
     {
@@ -125,15 +125,15 @@
       "id": "I_kwDOJ1yJis5zrTHM",
       "title": "Revise abstract and introduction to include AS as audience of the RS Metadata",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "From BC's comments: https://mailarchive.ietf.org/arch/msg/oauth/LA6sqNOV98D7wP44p2Hl6dpSmtg/",
       "createdAt": "2023-10-12T20:17:03Z",
-      "updatedAt": "2023-10-12T20:17:03Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-21T00:44:02Z",
+      "closedAt": "2023-10-21T00:44:02Z",
       "comments": []
     },
     {
@@ -141,15 +141,15 @@
       "id": "I_kwDOJ1yJis5zrVLB",
       "title": "Use of RS signing keys",
       "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aaronpk",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "From BC's comments: https://mailarchive.ietf.org/arch/msg/oauth/LA6sqNOV98D7wP44p2Hl6dpSmtg/\r\n\r\n> What \"content\" is being signed or encrypted and by whom?\r\n\r\nFAPI Message Signing talks about the RS signing resource responses. This specification could be how the RS publishes the public key, as mentioned in 5.6.6.2\r\n\r\nhttps://openid.bitbucket.io/fapi/fapi-2_0-message-signing.html#section-5.6.2.2\r\n\r\n> This specification doesn't specify the exact means by which a Client can retrieve the key for the Resource Server. Together with the identity of the Resource Server and the keyid in the Signature-Input field, the Client can retrieve the key from a trusted third party or by some other means",
       "createdAt": "2023-10-12T20:23:27Z",
-      "updatedAt": "2023-10-12T20:23:27Z",
-      "closedAt": null,
+      "updatedAt": "2023-10-21T02:18:44Z",
+      "closedAt": "2023-10-21T02:18:44Z",
       "comments": []
     },
     {
@@ -306,6 +306,294 @@
           "body": "",
           "createdAt": "2023-10-18T12:19:53Z",
           "updatedAt": "2023-10-18T12:19:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOJ1yJis5dbYcO",
+      "title": "Metadata can be used by clients and authorization servers",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/12",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #6 ",
+      "createdAt": "2023-10-21T00:03:50Z",
+      "updatedAt": "2023-10-21T00:44:01Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "6b9ad04879cef11fa0f3170b9f6f34d6612c2700",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-clients-and-authorization-servers",
+      "headRefOid": "22c2faf400b1eec12de7ecb3ce602d291ae4a4e2",
+      "closedAt": "2023-10-21T00:44:01Z",
+      "mergedAt": "2023-10-21T00:44:00Z",
+      "mergedBy": "aaronpk",
+      "mergeCommit": {
+        "oid": "41c92382a908dc8f275a4bbaedc6b7a2033c6682"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5kywnd",
+          "commit": {
+            "abbreviatedOid": "22c2faf"
+          },
+          "author": "aaronpk",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-21T00:40:56Z",
+          "updatedAt": "2023-10-21T00:40:56Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOJ1yJis5dbdoC",
+      "title": "mention origin-bound authenticators in phishing consideration",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/13",
+      "state": "MERGED",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-10-21T00:48:01Z",
+      "updatedAt": "2023-10-21T00:50:12Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "41c92382a908dc8f275a4bbaedc6b7a2033c6682",
+      "headRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "headRefName": "phishing",
+      "headRefOid": "33967d8028887632ad92572b40c171719e45caa3",
+      "closedAt": "2023-10-21T00:49:41Z",
+      "mergedAt": "2023-10-21T00:49:41Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "3166ab56009183a8e0c5e129678830cdb3b3088f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5kyx8q",
+          "commit": {
+            "abbreviatedOid": "33967d8"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-21T00:49:20Z",
+          "updatedAt": "2023-10-21T00:49:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOJ1yJis5dbgKQ",
+      "title": "add security consideration for audience-restricted access tokens",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/14",
+      "state": "MERGED",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "closes #5",
+      "createdAt": "2023-10-21T01:05:29Z",
+      "updatedAt": "2023-10-21T01:48:52Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "3166ab56009183a8e0c5e129678830cdb3b3088f",
+      "headRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "headRefName": "audience-restricted",
+      "headRefOid": "fec2c605ca4a1cba8f4ea431fb5032db8d42ad42",
+      "closedAt": "2023-10-21T01:48:47Z",
+      "mergedAt": "2023-10-21T01:48:47Z",
+      "mergedBy": "aaronpk",
+      "mergeCommit": {
+        "oid": "8089b722ce8f9a1c875b94648c095344161b2854"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5kyzcc",
+          "commit": {
+            "abbreviatedOid": "f20fc80"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T01:15:06Z",
+          "updatedAt": "2023-10-21T01:15:06Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n      \t\tdynamically-configured clients. As such, the use\r\n```",
+              "createdAt": "2023-10-21T01:15:06Z",
+              "updatedAt": "2023-10-21T01:15:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5kyzeE",
+          "commit": {
+            "abbreviatedOid": "f20fc80"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Apply my wording suggestion if you like it or don't if you don't.  Then merge.",
+          "createdAt": "2023-10-21T01:15:53Z",
+          "updatedAt": "2023-10-21T01:15:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOJ1yJis5dbmqF",
+      "title": "Provide use case for publishing signing keys",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/15",
+      "state": "MERGED",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "closes #7",
+      "createdAt": "2023-10-21T01:54:16Z",
+      "updatedAt": "2023-10-21T02:18:46Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "8089b722ce8f9a1c875b94648c095344161b2854",
+      "headRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "headRefName": "rs-signing",
+      "headRefOid": "e54e2340bcbb5231aa155853be7e3752445fa7eb",
+      "closedAt": "2023-10-21T02:18:43Z",
+      "mergedAt": "2023-10-21T02:18:43Z",
+      "mergedBy": "aaronpk",
+      "mergeCommit": {
+        "oid": "c51b616b9e557332cd320baa360c68d5189edc53"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ1yJis5ky4SM",
+          "commit": {
+            "abbreviatedOid": "f4f6002"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T01:56:35Z",
+          "updatedAt": "2023-10-21T01:56:35Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n\t    \t<xref target=\"PRMetadata\"/> defines metadata values that a protected\r\n```",
+              "createdAt": "2023-10-21T01:56:35Z",
+              "updatedAt": "2023-10-21T01:56:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5ky5Vx",
+          "commit": {
+            "abbreviatedOid": "f4f6002"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T02:00:27Z",
+          "updatedAt": "2023-10-21T02:00:28Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\n\t      These values may be used by other specifications, such as the <spanx style=\"verb\">jwks_uri</spanx>\r\n```",
+              "createdAt": "2023-10-21T02:00:28Z",
+              "updatedAt": "2023-10-21T02:00:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5ky5j5",
+          "commit": {
+            "abbreviatedOid": "f4f6002"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T02:01:11Z",
+          "updatedAt": "2023-10-21T02:01:12Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\n\t      used to publish public keys the resource server uses to sign\r\n```",
+              "createdAt": "2023-10-21T02:01:12Z",
+              "updatedAt": "2023-10-21T02:01:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5ky5wI",
+          "commit": {
+            "abbreviatedOid": "f4f6002"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T02:01:35Z",
+          "updatedAt": "2023-10-21T02:01:35Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n\t      resource responses, as described in Section 5.6.2 of <xref target=\"FAPI.MessageSigning\"/>.\r\n```",
+              "createdAt": "2023-10-21T02:01:35Z",
+              "updatedAt": "2023-10-21T02:01:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5ky6T_",
+          "commit": {
+            "abbreviatedOid": "f4f6002"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-21T02:04:54Z",
+          "updatedAt": "2023-10-21T02:04:55Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "```suggestion\r\n      \t\t</author>\r\n      \t\t<date day=\"24\" month=\"March\" year=\"2023\" />\r\n```",
+              "createdAt": "2023-10-21T02:04:54Z",
+              "updatedAt": "2023-10-21T02:04:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ1yJis5ky6Xq",
+          "commit": {
+            "abbreviatedOid": "67902e8"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I can see why this one was tricky.\r\n\r\nOne more suggestion to approve, then merge.",
+          "createdAt": "2023-10-21T02:06:12Z",
+          "updatedAt": "2023-10-21T02:06:12Z",
           "comments": []
         }
       ]
