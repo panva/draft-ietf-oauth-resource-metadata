@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-22T00:39:59.010458+00:00",
+  "timestamp": "2023-11-02T00:37:21.284620+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -164,7 +164,31 @@
       "labels": [],
       "body": "Should the header return the full path to the Resource Metadata document, or return the resource identifier?\r\n\r\n* RS Metadata document: the client fetches the exact URL returned\r\n* Resource Identifier: the client builds the metadata URL by appending .well-known... and then fetches the URL\r\n\r\nWhat are the implications of this for resources that differ by path? (see mailing list thread about path-based resources that require different scopes)",
       "createdAt": "2023-10-12T20:32:44Z",
-      "updatedAt": "2023-10-12T20:32:44Z",
+      "updatedAt": "2023-10-31T17:02:57Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm increasingly of the view that the resource identifier should be returned, which is what the draft already does.  This aligns with the `resource` value in https://www.rfc-editor.org/rfc/rfc8707.html , which we normatively use.\r\n\r\nI propose that we say that during IETF 118 in Prague.  If we get consensus on this, it will close our last remaining issue.",
+          "createdAt": "2023-10-31T17:02:57Z",
+          "updatedAt": "2023-10-31T17:02:57Z"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOJ1yJis51nFjo",
+      "title": "Question: What happens if the WWW-Authenticate header returns a Resource Identifier with a different hostname?",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/16",
+      "state": "OPEN",
+      "author": "aaronpk",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "* Is this acceptable?\r\n* What features does this enable?\r\n* What are the security considerations of doing so?\r\n\r\nIn some situations it is impossible or impractical for a resource server to host content at `.well-known`.",
+      "createdAt": "2023-11-01T22:06:23Z",
+      "updatedAt": "2023-11-01T22:07:43Z",
       "closedAt": null,
       "comments": []
     }
