@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-09T00:37:54.726420+00:00",
+  "timestamp": "2023-11-12T00:40:58.822068+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -204,7 +204,7 @@
       "labels": [],
       "body": "The draft [currently](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-resource-metadata-01#section-3) (and the examples in it) follow this language\r\n\r\n> Protected resources supporting metadata MUST make a JSON document containing metadata as specified in [Section 2](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-resource-metadata-01#PRMetadata) available at a path formed by concatenating a well-known URI string such as /.well-known/oauth-protected-resource to the protected resource's resource identifier.\r\n\r\nThis means (taken from an example in the draft):\r\n\r\n```\r\n    GET /resource1/.well-known/oauth-protected-resource HTTP/1.1\r\n    Host: resource.example.com\r\n```\r\n\r\nThis is inconsistent with RFC8414 (and its normative dependencies) which says\r\n\r\n> If the issuer identifier value contains a path component, any terminating \"/\" MUST be removed before inserting \"/.well-known/\" and the well-known URI suffix between the host component and the path component.\r\n\r\nThis means (taken from an example in RFC8414):\r\n\r\n```\r\n     GET /.well-known/oauth-authorization-server/issuer1 HTTP/1.1\r\n     Host: example.com\r\n```\r\n\r\nThe RFC8414 way kind of hampers the ability to host these documents in multi-tenant system on certain deployments but i'm unsure if we can justify not doing it this way.",
       "createdAt": "2023-11-08T14:01:30Z",
-      "updatedAt": "2023-11-08T18:12:58Z",
+      "updatedAt": "2023-11-09T16:12:02Z",
       "closedAt": null,
       "comments": [
         {
@@ -213,6 +213,13 @@
           "body": "Thanks @panva, this was the subject of my comments in [the meeting today](https://notes.ietf.org/notes-ietf-118-oauth#Protected-Resource-Metadata-%E2%80%93-Mike-Jones-Aaron-Parecki-20-min). I do think that the way it's done in the draft currently makes sense for the context and is preferable.  But it might raise some objections in IESG etc. review. I don't honestly know what the best course of action is. But wanted to bring it up earlier rather than later. Perhaps Roman's suggestion of asking the HTTP directorate for an early review in hope of avoiding surprise down the line? ",
           "createdAt": "2023-11-08T18:12:50Z",
           "updatedAt": "2023-11-08T18:12:58Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "NONE",
+          "body": "The draft does say the following [here](https://www.ietf.org/archive/id/draft-ietf-oauth-resource-metadata-01.html#section-3.1-6), which maybe provides sufficient justification. Maybe.\r\n\r\n> Using path components enables supporting multiple resources per host. This is required in some multi-tenant hosting configurations. This use of .well-known is for supporting multiple resources per host; unlike its use in [[RFC5785](https://www.ietf.org/archive/id/draft-ietf-oauth-resource-metadata-01.html#RFC5785)], it does not provide general information about the host.",
+          "createdAt": "2023-11-09T16:11:48Z",
+          "updatedAt": "2023-11-09T16:12:02Z"
         }
       ]
     }
