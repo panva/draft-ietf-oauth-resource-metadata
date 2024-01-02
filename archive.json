@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-31T00:42:20.631579+00:00",
+  "timestamp": "2024-01-02T00:38:42.075553+00:00",
   "repo": "oauth-wg/draft-ietf-oauth-resource-metadata",
   "labels": [
     {
@@ -188,9 +188,17 @@
       "labels": [],
       "body": "* Is this acceptable?\r\n* What features does this enable?\r\n* What are the security considerations of doing so?\r\n\r\nIn some situations it is impossible or impractical for a resource server to host content at `.well-known`.",
       "createdAt": "2023-11-01T22:06:23Z",
-      "updatedAt": "2023-11-01T22:07:43Z",
+      "updatedAt": "2024-01-01T01:13:29Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Per the proposed validation logic in PR #20, this is OK when the URL of the resource server used by the client matches the `resource` value returned in the metadata.",
+          "createdAt": "2024-01-01T01:13:27Z",
+          "updatedAt": "2024-01-01T01:13:27Z"
+        }
+      ]
     },
     {
       "number": 17,
@@ -222,6 +230,24 @@
           "updatedAt": "2023-11-09T16:12:02Z"
         }
       ]
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOJ1yJis5624eg",
+      "title": "Register signed_metadata parameter",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/issues/19",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "selfissued"
+      ],
+      "labels": [],
+      "body": "... analogous to the one in https://www.rfc-editor.org/rfc/rfc8414.html.",
+      "createdAt": "2024-01-01T00:34:01Z",
+      "updatedAt": "2024-01-01T01:34:45Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -652,6 +678,84 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOJ1yJis5i_TJr",
+      "title": "Switch from concatenating to inserting .well-known string",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/18",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "As discussed during IETF 118.\r\n\r\nFixes #17 ",
+      "createdAt": "2024-01-01T00:25:47Z",
+      "updatedAt": "2024-01-01T00:26:36Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "5910a09ac252057acf4d4e1f547791f9d1afd426",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-well-known",
+      "headRefOid": "a85057cfc1413982fea8a62b96ef0c9c7e8aa69a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOJ1yJis5i_XkV",
+      "title": "Have WWW-Authenticate return resource_metadata URL",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/20",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #8 ",
+      "createdAt": "2024-01-01T01:11:19Z",
+      "updatedAt": "2024-01-01T01:48:07Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "5910a09ac252057acf4d4e1f547791f9d1afd426",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-www-authenticate-resource_metadata",
+      "headRefOid": "96b783a26dba7c47bb41588ecec0403fed60b3aa",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOJ1yJis5i_aqp",
+      "title": "Register signed_metadata parameter",
+      "url": "https://github.com/oauth-wg/draft-ietf-oauth-resource-metadata/pull/21",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #19 ",
+      "createdAt": "2024-01-01T01:35:24Z",
+      "updatedAt": "2024-01-01T01:35:24Z",
+      "baseRepository": "oauth-wg/draft-ietf-oauth-resource-metadata",
+      "baseRefName": "main",
+      "baseRefOid": "5910a09ac252057acf4d4e1f547791f9d1afd426",
+      "headRepository": "selfissued/draft-ietf-oauth-resource-metadata",
+      "headRefName": "mbj-register-signed_metadata",
+      "headRefOid": "8c635d20152f1241767b537cc16049f74720fea0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
